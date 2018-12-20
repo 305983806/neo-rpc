@@ -1,0 +1,27 @@
+dependencies {
+    compile("org.apache.zookeeper:zookeeper:3.4.10") {
+        exclude group: 'org.slf4j', module: 'slf4j-log4j12'
+        exclude group: 'org.slf4j', module: 'slf4j-api'
+        exclude group: 'log4j', module: 'log4j'
+    }
+    compile("com.101tec:zkclient:${zkclient}") {
+        exclude group: 'org.slf4j', module: 'slf4j-log4j12'
+        exclude group: 'org.slf4j', module: 'slf4j-api'
+        exclude group: 'log4j', module: 'log4j'
+    }
+    compile "org.springframework:spring-context:${spring}"
+    compile project(':neo-rpc-common')
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: "${uploadURL}") {
+                authentication(userName: "${uploadUsername}", password: "${uploadPassword}")
+            }
+            pom.version = "${project.version}"
+            pom.artifactId = "${project.name}"
+            pom.groupId = "${project.group}"
+        }
+    }
+}

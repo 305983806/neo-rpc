@@ -1,0 +1,12 @@
+repositories {
+    maven{ url "http://repo.lonntec.cn/repository/maven-public/"}
+    maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+    jcenter()
+}
+
+dependencies {
+    implementation "org.springframework.boot:spring-boot-starter:$springboot"
+    compile 'com.neo:neo-rpc:v0.0.1-snapshot'
+//    implementation project(':neo-rpc-server')
+    implementation project(':neo-rpc-sample:hello-api')
+}

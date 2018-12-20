@@ -1,0 +1,22 @@
+dependencies {
+    compile "org.apache.commons:commons-lang3:${commonsLang3}"
+    compile "org.apache.commons:commons-collections4:${commonsCollections4}"
+    compile "io.protostuff:protostuff-core:${protostuffCore}"
+    compile "io.protostuff:protostuff-runtime:${protostuffRuntime}"
+    compile "org.objenesis:objenesis:${objenesis}"
+    compile "org.slf4j:slf4j-api:${slf4j}"
+    compile "io.netty:netty-all:${netty}"
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: "${uploadURL}") {
+                authentication(userName: "${uploadUsername}", password: "${uploadPassword}")
+            }
+            pom.version = "${project.version}"
+            pom.artifactId = "${project.name}"
+            pom.groupId = "${project.group}"
+        }
+    }
+}

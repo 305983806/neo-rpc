@@ -1,0 +1,43 @@
+plugins {
+    id 'java'
+    id 'maven'
+}
+
+group "${groupId}"
+version '0.0.1-snapshot'
+
+subprojects {
+    group "${project.group}"
+    apply plugin: 'java'
+    apply plugin: 'maven'
+    sourceCompatibility = "${jdk}"
+    repositories {
+        maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+        jcenter()
+    }
+    dependencies {
+        testImplementation "junit:junit:${junit}"
+    }
+    tasks.withType(JavaCompile) {
+        options.encoding = "UTF-8"
+    }
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: "${uploadURL}") {
+                authentication(userName: "${uploadUsername}", password: "${uploadPassword}")
+            }
+            pom.version = "${project.version}"
+            pom.artifactId = "${project.name}"
+            pom.groupId = "${project.group}"
+        }
+    }
+    dependencies {
+//        compile project(":neo-rpc-client")
+//        compile project(":neo-rpc-common")
+//        compile project(":neo-rpc-registry")
+//        compile project(":neo-rpc-server")
+    }
+}

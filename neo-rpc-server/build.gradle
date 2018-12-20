@@ -1,0 +1,17 @@
+dependencies {
+    compile project(':neo-rpc-common')
+    compile project(':neo-rpc-registry')
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: "${uploadURL}") {
+                authentication(userName: "${uploadUsername}", password: "${uploadPassword}")
+            }
+            pom.version = "${project.version}"
+            pom.artifactId = "${project.name}"
+            pom.groupId = "${project.group}"
+        }
+    }
+}
