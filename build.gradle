@@ -25,6 +25,13 @@ subprojects {
     }
 }
 
+dependencies {
+    compile project (':neo-rpc-client')
+    compile project (':neo-rpc-common')
+    compile project (':neo-rpc-registry')
+    compile project (':neo-rpc-server')
+}
+
 uploadArchives {
     repositories {
         mavenDeployer {
