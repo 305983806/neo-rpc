@@ -1,22 +1,22 @@
 dependencies {
-    compile "org.apache.commons:commons-lang3:${commonsLang3}"
-    compile "org.apache.commons:commons-collections4:${commonsCollections4}"
-    compile "io.protostuff:protostuff-core:${protostuffCore}"
-    compile "io.protostuff:protostuff-runtime:${protostuffRuntime}"
-    compile "org.objenesis:objenesis:${objenesis}"
-    compile "org.slf4j:slf4j-api:${slf4j}"
-    compile "io.netty:netty-all:${netty}"
+    implementation "org.apache.commons:commons-lang3:${COMMONS_LANG3}"
+    implementation "org.apache.commons:commons-collections4:${COMMONS_COLLECTIONS4}"
+    implementation "io.protostuff:protostuff-core:${PROTOSTUFF_CORE}"
+    implementation "io.protostuff:protostuff-runtime:${PROTOSTUFF_RUNTIME}"
+    implementation "org.objenesis:objenesis:${OBJENESIS}"
+    compile "org.slf4j:slf4j-api:${SLF4J}"
+    compile "io.netty:netty-all:${NETTY}"
 }
 
 uploadArchives {
     repositories {
         mavenDeployer {
-            repository(url: "${uploadURL}") {
-                authentication(userName: "${uploadUsername}", password: "${uploadPassword}")
+            repository(url: "${UPLOAD_URL}") {
+                authentication(userName: "${UPLOAD_USERNAME}", password: "${UPLOAD_PASSWORD}")
             }
-            pom.version = "${project.version}"
+            pom.version = "${VERSION}"
             pom.artifactId = "${project.name}"
-            pom.groupId = "${project.group}"
+            pom.groupId = "${GROUP_ID}"
         }
     }
 }
