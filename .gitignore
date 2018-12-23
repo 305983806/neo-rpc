@@ -14,7 +14,7 @@ out
 
 ### IntelliJ IDEA ###
 .idea
-gradle
+# gradle
 *.iws
 *.iml
 *.ipr
