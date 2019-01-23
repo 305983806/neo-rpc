@@ -61,7 +61,12 @@ public class RpcServer implements ApplicationContextAware, InitializingBean {
 
     @Override
     public void afterPropertiesSet() throws Exception {
+
+    }
+
+    public void start() {
         EventLoopGroup bossGroup = new NioEventLoopGroup();
+
         EventLoopGroup childGroup = new NioEventLoopGroup();
         try {
             // 启动 PRC 服务

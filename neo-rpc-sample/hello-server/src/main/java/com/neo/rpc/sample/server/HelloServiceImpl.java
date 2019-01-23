@@ -13,7 +13,7 @@ import com.neo.rpc.server.RpcService;
 public class HelloServiceImpl implements HelloService {
     @Override
     public String say(String name) {
-        return "hello" + name;
+        return "hello " + name;
     }
 
     @Override

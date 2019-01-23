@@ -1,5 +1,6 @@
 dependencies {
     implementation "org.springframework.boot:spring-boot-starter:${SPRINGBOOT}"
-    compile 'com.neo:neo-rpc:0.0.25-snapshot'
+    implementation "org.springframework.boot:spring-boot-starter-web:${SPRINGBOOT}"
+    compile 'com.neo:neo-rpc-server:0.0.26-snapshot'
     implementation project(':neo-rpc-sample:hello-api')
 }

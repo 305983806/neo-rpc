@@ -1,7 +1,9 @@
 package com.neo.rpc.sample.server;
 
+import com.neo.rpc.server.RpcServer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
 
 /**
  * @Auther: cp.Chen
@@ -11,6 +13,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication(scanBasePackages = "com.neo.rpc")
 public class Server {
     public static void main(String[] args) {
-        SpringApplication.run(Server.class, args);
+        ApplicationContext ctx = SpringApplication.run(Server.class, args);
+        ctx.getBean(RpcServer.class).start();
     }
 }
